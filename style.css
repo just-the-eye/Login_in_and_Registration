@@ -1,0 +1,398 @@
+/* ==========================================================================
+   MUST-VLE (Virtual Learning Environment) Stylesheet
+   Pure HTML & CSS Implementation for Login & Registration Pages
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES (THEME COLORS & SETTINGS)
+   Easily change the page colors here without editing individual rules.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand & Action Colors */
+  --primary-color: #1a56db;          /* Royal University Blue for main actions */
+  --primary-hover: #1e429f;          /* Darker shade on hover */
+  --primary-shadow: rgba(26, 86, 219, 0.25);
+
+  --secondary-color: #059669;        /* Forest Green for registration / success */
+  --secondary-hover: #047857;        /* Darker green on hover */
+  --secondary-shadow: rgba(5, 150, 105, 0.25);
+
+  /* Background Colors */
+  --bg-gradient-start: #0f172a;      /* Dark slate navy for professional background */
+  --bg-gradient-end: #1e293b;        /* Subtle gradient end */
+  --card-bg: #ffffff;                /* Clean crisp white for the form card */
+  --input-bg: #f8fafc;               /* Soft light-gray for input boxes */
+
+  /* Text Colors */
+  --text-main: #1e293b;              /* Dark charcoal for main headings and text */
+  --text-muted: #64748b;             /* Gray for hints, placeholders, and labels */
+  --text-light: #94a3b8;             /* Light gray for subtle details */
+  --link-color: #2563eb;             /* Blue for hyperlinks */
+  --link-hover: #1d4ed8;             /* Darker blue when hovering links */
+
+  /* Border & Outline Colors */
+  --border-color: #cbd5e1;           /* Default border for inputs and dividers */
+  --border-focus: #1a56db;           /* Highlight border when typing in an input */
+
+  /* Typography */
+  --font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+
+  /* Sizing and Spacing */
+  --card-radius: 16px;               /* Rounded corners for the card */
+  --input-radius: 8px;               /* Rounded corners for input fields */
+  --button-radius: 8px;              /* Rounded corners for buttons */
+  --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESET & BASE STYLES
+   Ensures consistent rendering across all web browsers.
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Includes padding and border in element width */
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+
+  /* Campus atmosphere gradient background with subtle pattern overlay */
+  background: 
+    linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(30, 41, 59, 0.85)),
+    radial-gradient(circle at top right, rgba(5, 150, 105, 0.25), transparent 50%),
+    radial-gradient(circle at bottom left, rgba(26, 86, 219, 0.25), transparent 50%),
+    #0f172a;
+  background-attachment: fixed;
+}
+
+/* --------------------------------------------------------------------------
+   3. MAIN CARD CONTAINER
+   Houses the badge, heading, forms, and navigation buttons.
+   -------------------------------------------------------------------------- */
+.auth-container {
+  width: 100%;
+  max-width: 440px;                 /* Optimal width for clean form layout */
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 36px 32px;
+  text-align: center;
+  animation: fadeIn 0.4s ease-out; /* Smooth entrance animation */
+}
+
+/* Slightly wider card for the registration page to comfortably fit all fields */
+.auth-container.register-card {
+  max-width: 480px;
+}
+
+/* Subtle fade-in animation when page opens */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. LOGO & BADGE SECTION
+   Preserves the exact MUST-VLE badge as requested.
+   -------------------------------------------------------------------------- */
+.badge-wrapper {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.university-badge {
+  max-width: 210px;                  /* Clean badge display width */
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   5. HEADINGS & SUBTEXT
+   -------------------------------------------------------------------------- */
+.auth-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   6. FORM & INPUT GROUPS
+   Matches the input layout in the screenshot (icon on left, field, optional badge).
+   -------------------------------------------------------------------------- */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;                         /* Spacing between each form field */
+  text-align: left;
+}
+
+/* Form group with label and input */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Labels for input fields */
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Note explaining credentials used for sign in */
+.form-hint {
+  font-size: 11px;
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+/* Input container grouping the icon and input field */
+.input-group {
+  display: flex;
+  align-items: center;
+  background-color: var(--input-bg);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--input-radius);
+  padding: 0 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Highlight input container when active/focused */
+.input-group:focus-within {
+  border-color: var(--border-focus);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px var(--primary-shadow);
+}
+
+/* Icons inside inputs (SVG) */
+.input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.input-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Change icon color when field is active */
+.input-group:focus-within .input-icon {
+  color: var(--border-focus);
+}
+
+/* Text & password input styling */
+.form-input {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 14px;
+  font-family: var(--font-family);
+  color: var(--text-main);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: var(--text-light);
+}
+
+/* "SHOW" password indicator from the screenshot */
+.password-toggle-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  background: #e2e8f0;
+  user-select: none;
+  cursor: default;
+}
+
+/* 2-column layout for First Name and Last Name */
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   7. LINKS & FORGOT PASSWORD
+   -------------------------------------------------------------------------- */
+.form-links {
+  text-align: center;
+  margin: 4px 0 8px 0;
+}
+
+.link-text {
+  color: var(--link-color);
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease, text-decoration 0.15s ease;
+}
+
+.link-text:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   8. ACTION BUTTONS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-family);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Primary Action Button (e.g. Log in, Register Submit) */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  box-shadow: 0 4px 10px var(--primary-shadow);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px var(--primary-shadow);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Action Button (e.g. "Register" button on login page) */
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+  box-shadow: 0 4px 10px var(--secondary-shadow);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px var(--secondary-shadow);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   9. FIRST TIME HERE / REGISTRATION PROMPT SECTION
+   Replaces the cookie notice and support text with the new register callout.
+   -------------------------------------------------------------------------- */
+.first-time-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.first-time-heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.first-time-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+/* Back to Login link row */
+.back-to-login {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.back-to-login a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-to-login a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   10. RESPONSIVE DESIGN (MOBILE SCREENS)
+   Adapts smoothly to mobile devices and tablets.
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  body {
+    padding: 16px 12px;
+  }
+
+  .auth-container {
+    padding: 28px 20px;
+    border-radius: 12px;
+  }
+
+  /* Stack First Name and Last Name vertically on small screens */
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .auth-title {
+    font-size: 21px;
+  }
+
+  .university-badge {
+    max-width: 180px;
+  }
+}

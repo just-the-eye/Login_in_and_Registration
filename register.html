@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Account | MUST-VLE</title>
+  <!-- Link to the shared stylesheet for consistent styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       MAIN REGISTRATION CONTAINER
+       Houses the university badge, registration form fields, and back-to-login link.
+       ========================================================================= -->
+  <main class="auth-container register-card">
+
+    <!-- 1. UNIVERSITY BADGE SECTION (MUST-VLE Branding) -->
+    <!-- Exactly identical badge as requested -->
+    <header class="badge-wrapper">
+      <img src="images/must_badge.png" 
+           alt="MUST-VLE - Virtual Learning Environment Badge" 
+           class="university-badge">
+    </header>
+
+    <!-- 2. REGISTRATION HEADING -->
+    <h1 class="auth-title">Create an Account</h1>
+    <p class="auth-subtitle">Fill in the form below to register for MUST-VLE.</p>
+
+    <!-- 3. REGISTRATION FORM -->
+    <form action="#" method="POST" class="auth-form">
+
+      <!-- Row for First Name & Last Name (Side by side on desktop, stacked on mobile) -->
+      <div class="form-row">
+        <!-- First Name -->
+        <div class="form-group">
+          <label for="firstname" class="form-label">First Name</label>
+          <div class="input-group">
+            <span class="input-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <input type="text" 
+                   id="firstname" 
+                   name="firstname" 
+                   class="form-input" 
+                   placeholder="e.g. Brave" 
+                   required>
+          </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group">
+          <label for="lastname" class="form-label">Last Name</label>
+          <div class="input-group">
+            <span class="input-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <input type="text" 
+                   id="lastname" 
+                   name="lastname" 
+                   class="form-input" 
+                   placeholder="e.g. Ainebyoona" 
+                   required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email" class="form-label">Email Address</label>
+        <div class="input-group">
+          <!-- Mail Icon (SVG) -->
+          <span class="input-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </span>
+          <input type="email" 
+                 id="email" 
+                 name="email" 
+                 class="form-input" 
+                 placeholder="e.g. ainebyoona@must.ac.ug" 
+                 autocomplete="email" 
+                 required>
+        </div>
+      </div>
+
+      <!-- Contact / Phone Number Field -->
+      <div class="form-group">
+        <label for="contact" class="form-label">Contact</label>
+        <div class="input-group">
+          <!-- Phone Icon (SVG) -->
+          <span class="input-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </span>
+          <input type="tel" 
+                 id="contact" 
+                 name="contact" 
+                 class="form-input" 
+                 placeholder="e.g. +256 782 902797" 
+                 autocomplete="tel" 
+                 required>
+        </div>
+      </div>
+
+      <!-- Username Field (Identified as the one used to sign in) -->
+      <div class="form-group">
+        <label for="reg-username" class="form-label">
+          <span>Username</span>
+          <span class="form-hint">(Used to sign in)</span>
+        </label>
+        <div class="input-group">
+          <span class="input-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <input type="text" 
+                 id="reg-username" 
+                 name="username" 
+                 class="form-input" 
+                 placeholder="Choose a username or Student ID (e.g. 2025bse024)" 
+                 autocomplete="username" 
+                 required>
+        </div>
+      </div>
+
+      <!-- Password Field (Identified as the one used to sign in) -->
+      <div class="form-group">
+        <label for="reg-password" class="form-label">
+          <span>Password</span>
+          <span class="form-hint">(Used to sign in)</span>
+        </label>
+        <div class="input-group">
+          <span class="input-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </span>
+          <input type="password" 
+                 id="reg-password" 
+                 name="password" 
+                 class="form-input" 
+                 placeholder="Create a strong password" 
+                 autocomplete="new-password" 
+                 required>
+          <span class="password-toggle-badge">SHOW</span>
+        </div>
+      </div>
+
+      <!-- Submit Registration Button -->
+      <button type="submit" class="btn btn-secondary">Register</button>
+
+    </form>
+
+    <!-- 4. LINK BACK TO LOGIN PAGE -->
+    <footer class="back-to-login">
+      Already have an account? <a href="index.html">Log in here</a>
+    </footer>
+
+  </main>
+
+</body>
+</html>

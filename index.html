@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in to the site | MUST-VLE</title>
+  <!-- Link to the shared stylesheet for styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       MAIN AUTHENTICATION CONTAINER
+       Contains the university badge, login form, and registration prompt.
+       ========================================================================= -->
+  <main class="auth-container">
+
+    <!-- 1. UNIVERSITY BADGE SECTION (MUST-VLE Branding) -->
+    <!-- Preserves the exact MUST-VLE badge as requested without changes -->
+    <header class="badge-wrapper">
+      <img src="images/must_badge.png" 
+           alt="MUST-VLE - Virtual Learning Environment Badge" 
+           class="university-badge">
+    </header>
+
+    <!-- 2. LOGIN HEADING -->
+    <h1 class="auth-title">Log in</h1>
+    <p class="auth-subtitle">Welcome back! Please enter your login details.</p>
+
+    <!-- 3. LOGIN FORM -->
+    <form action="#" method="POST" class="auth-form">
+
+      <!-- Username Input Group -->
+      <div class="form-group">
+        <label for="username" class="form-label">Username</label>
+        <div class="input-group">
+          <!-- User / Person Icon (SVG) -->
+          <span class="input-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <!-- Username input field (e.g. student registration number or username) -->
+          <input type="text" 
+                 id="username" 
+                 name="username" 
+                 class="form-input" 
+                 placeholder="e.g. 2025bse024" 
+                 autocomplete="username" 
+                 required>
+        </div>
+      </div>
+
+      <!-- Password Input Group -->
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <div class="input-group">
+          <!-- Lock Icon (SVG) -->
+          <span class="input-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </span>
+          <!-- Password input field -->
+          <input type="password" 
+                 id="password" 
+                 name="password" 
+                 class="form-input" 
+                 placeholder="••••••••••••" 
+                 autocomplete="current-password" 
+                 required>
+          <!-- SHOW indicator badge as seen in the original interface -->
+          <span class="password-toggle-badge">SHOW</span>
+        </div>
+      </div>
+
+      <!-- Forgot Username or Password Link -->
+      <div class="form-links">
+        <a href="#" class="link-text">Forgotten your username or password?</a>
+      </div>
+
+      <!-- Primary Action: Log In Button -->
+      <button type="submit" class="btn btn-primary">Log in</button>
+
+    </form>
+
+    <!-- =========================================================================
+         4. FIRST TIME HERE SECTION
+         (Replaces the previous cookie notice and support email text with 
+          a clean 'if this is your first time' prompt and Register button)
+         ========================================================================= -->
+    <section class="first-time-section">
+      <h2 class="first-time-heading">If this is your first time,</h2>
+      <p class="first-time-text">Create an account to access course materials and activities.</p>
+      <!-- Register button linking to the registration page -->
+      <a href="register.html" class="btn btn-secondary">Register</a>
+    </section>
+
+  </main>
+
+</body>
+</html>
